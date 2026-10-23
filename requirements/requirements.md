@@ -4,14 +4,16 @@
 
 ## 1. Purpose and interpretation
 
-1. **R1.1 — Framework identity.** The name “AI with ME - Operating Framework” covers:
+### 1.1 Framework definition
+
+1. **Framework identity.** The name “AI with ME - Operating Framework” covers:
 
    - The Plugin.
    - Google governance resources.
    - Their operating relationships.
    - Optional supporting Database services.
 
-2. **R1.2 — Intended outcome.** The Framework must support reusable, portable AI work with:
+2. **Intended outcome.** The Framework must support reusable, portable AI work with:
 
    - Clear responsibility.
    - Bounded scope.
@@ -20,19 +22,7 @@
 
    It should reduce unnecessary source reads and duplicated instructions.
 
-3. **R1.3 — AI-native operation.** The Framework defines:
-
-   - Source authority.
-   - Responsibilities.
-   - Scope.
-   - Dependencies.
-   - Forward Lifecycles.
-   - Required approvals.
-   - Expected outcomes.
-
-   The executing AI determines practical methods within those requirements and its available capabilities.
-
-4. **R1.4 — Meaning of requirements.** Interpret these requirement terms consistently:
+3. **Meaning of requirements.** Interpret these requirement terms consistently:
 
    1. “Must” states a required outcome.
    2. “Should” preserves an intended preference.
@@ -40,16 +30,7 @@
 
    Conditions and qualifications remain part of each requirement.
 
-5. **R1.5 — Forward progression.** Agent Lifecycles must preserve:
-
-   - Essential stages.
-   - Decisions.
-   - Information handling.
-   - Handoffs.
-
-   They must not introduce a universal AI-response Verification stage or separate Failure Recovery workflow. Agents handle encountered errors within their capabilities and report necessary assistance.
-
-6. **R1.6 — Substantive authority.** The user remains the final decision-maker. Confirmed governing decisions establish substantive requirements.
+4. **Substantive authority.** The user remains the final decision-maker. Confirmed governing decisions establish substantive requirements.
 
    The following do not independently authorize execution:
 
@@ -58,11 +39,81 @@
    - Accepted Findings.
    - Advisory Experiences.
 
+### 1.2 Binding Non-functional Requirements
+
+These Non-functional Requirements bind relevant design and maintenance of:
+
+- Requirements.
+- The AI Plugin.
+- Agent Instructions.
+- Lifecycles.
+- Workflows.
+
+1. **AI Management.** The Framework governs AI Management. Keep it distinct from Software Management, whose design principles and expectations differ.
+
+2. **AI autonomy.** The Framework defines:
+
+   - Source authority.
+   - Agent responsibilities.
+   - Scope.
+   - Dependencies.
+   - Forward Lifecycles.
+   - Workflows.
+   - Required approvals.
+   - Expected outcomes.
+
+   The executing AI selects practical methods within these requirements and its available capabilities. It solves operational problems using its own judgment.
+
+   Agent Lifecycles must preserve:
+
+   - Essential stages.
+   - Decisions.
+   - Information handling.
+   - Handoffs.
+
+3. **Priorities and boundaries.** Define meaningful priorities and essential Scope boundaries. Allow reasonable ambiguity.
+
+   Do not specify every possible:
+
+   - Edge case.
+   - Condition.
+   - Micro-boundary.
+
+4. **Failure Handling.** AI must use its judgment when execution encounters difficulties. It must act within authorized Scope and record actual outcomes. Report necessary assistance.
+
+   Do not predesign Failure Handling methods for the AI.
+
+   Normal AI execution must not require:
+
+   - Fixed retry counts.
+   - Exhaustive recovery branches.
+
+   Delegated acceptance review follows Section 7.4.
+
+5. **AI behavior verification.** Individual AI behavior and choices may vary between executions.
+
+   Do not require:
+
+   - Deterministic, repeatable verification of individual AI behavior.
+   - A universal AI-response Verification stage.
+
+   Actual Deliverable QA follows Section 9.
+
+6. **Writing, design and operating preferences.** Preserve the following as binding Non-functional Requirements:
+
+   - AI-native constraints.
+   - Writing and design principles.
+   - Relevant user operating preferences.
+
+   Apply the writing and user communication requirements in Section 9.
+
+7. **Requirement numbering.** Use the document's Section numbering to locate requirements. Do not add parallel R-prefixed identifiers to every requirement.
+
 ## 2. Repository, distribution, and installation
 
-1. **R2.1 — Source authority.** One GitHub Repository must be the authoritative development and distribution source for the Plugin and reusable operating resources. Maintain their common instructions in that source.
+1. **Source authority.** One GitHub Repository must be the authoritative development and distribution source for the Plugin and reusable operating resources. Maintain their common instructions in that source.
 
-2. **R2.2 — README.** The root README must provide a concise explanation for human readers and AI Agents.
+2. **README.** The root README must provide a concise explanation for human readers and AI Agents.
 
    It must explain:
 
@@ -79,9 +130,9 @@
    - Documentation.
    - Intentional updates.
 
-3. **R2.3 — Requirements area.** A dedicated Requirements area must contain the consolidated requirements baseline. Source-to-requirement traceability must remain durable. Private governance references belong in private supporting records.
+3. **Requirements area.** A dedicated Requirements area must contain the consolidated requirements baseline. Source-to-requirement traceability must remain durable. Private governance references belong in private supporting records.
 
-4. **R2.4 — Plugin area.** A separate Plugin area must contain:
+4. **Plugin area.** A separate Plugin area must contain:
 
    - Plugin source.
    - Packaged resources.
@@ -94,7 +145,7 @@
    - Forward Lifecycles.
    - Applicable Frameworks.
 
-5. **R2.5 — Documentation area.** A separate, richer Documentation area is a desired reference.
+5. **Documentation area.** A separate, richer Documentation area is a desired reference.
 
    It should explain:
 
@@ -107,7 +158,7 @@
 
    Its practical organization belongs to authorized drafting work.
 
-6. **R2.6 — Private installation.** Distribution must support users performing these actions with their own Private Plugin from GitHub source:
+6. **Private installation.** Distribution must support users performing these actions with their own Private Plugin from GitHub source:
 
    - Creating it.
    - Manually installing it.
@@ -115,7 +166,7 @@
 
    Packaging and update methods remain subjects for authorized development.
 
-7. **R2.7 — AI-led installation.** A user may give an AI the Repository URL.
+7. **AI-led installation.** A user may give an AI the Repository URL.
 
    The AI must complete these actions:
 
@@ -124,7 +175,7 @@
    3. Assess dependencies.
    4. Assist installation using available tools and granted permissions.
 
-8. **R2.8 — Missing capabilities.** The AI must explain the practical limitation when any necessary dependency is unavailable:
+8. **Missing capabilities.** The AI must explain the practical limitation when any necessary dependency is unavailable:
 
    - A connector.
    - A capability.
@@ -132,9 +183,9 @@
 
    It must discuss the next authorized step. It must perform or guide permitted setup within its capabilities.
 
-9. **R2.9 — Installed operation.** The installed Plugin must contain shared instructions and resources required for normal Agent operation without routine GitHub reads. GitHub supplies intentional updates and source distribution. Current governance and records must be obtained from their Google authority.
+9. **Installed operation.** The installed Plugin must contain shared instructions and resources required for normal Agent operation without routine GitHub reads. GitHub supplies intentional updates and source distribution. Current governance and records must be obtained from their Google authority.
 
-10. **R2.10 — Installation design boundary.** AI-native installation guidance is required. Public Plugin publication and automatic GitHub synchronization are outside the adopted distribution design.
+10. **Installation design boundary.** AI-native installation guidance is required. Public Plugin publication and automatic GitHub synchronization are outside the adopted distribution design.
 
     The following are not mandatory requirements:
 
@@ -146,7 +197,7 @@
 
 ### 3.1 Governance resources and dependencies
 
-1. **R3.1 — Google authority.** Google Drive / Docs must be the common authoritative resource for System and Project governance and required records.
+1. **Google authority.** Google Drive / Docs must be the common authoritative resource for System and Project governance and required records.
 
    This authority applies across:
 
@@ -154,7 +205,7 @@
    - Local environments.
    - Future independent AI execution.
 
-2. **R3.2 — System Root.** One designated Google System Root must contain:
+2. **System Root.** One designated Google System Root must contain:
 
    - Central System Context.
    - System Rules.
@@ -162,15 +213,17 @@
 
    Each Project must have its own Project Context and Project Rules. It must have applicable Project Commands and meaningful destinations for its work.
 
-3. **R3.3 — System Context.** System Context must maintain:
+3. **System Context.** System Context must maintain:
 
    - The Project Directory.
-   - Agent Identity discovery references.
+   - The central Agent Identity registry.
    - System configuration.
+
+   Maintain one authoritative registration per Agent Identity there.
 
    Preserve current governing relationships and appropriate optional Database connection references. Routine Project progress belongs in its owning work records.
 
-4. **R3.4 — System Rules.** System Rules must express user-defined shared operating conventions.
+4. **System Rules.** System Rules must express user-defined shared operating conventions.
 
    Google System Rules govern:
 
@@ -188,7 +241,7 @@
 
    Apply each set according to the action and scope.
 
-5. **R3.5 — Project Rules.** Project Rules must identify:
+5. **Project Rules.** Project Rules must identify:
 
    - Project-specific operating requirements.
    - Applicable Work/Deliverable Lifecycles.
@@ -202,7 +255,10 @@
    - Location.
    - Responsible Agent.
 
-6. **R3.6 — Lifecycle customization.** Project Rules may customize:
+   Project Rules must register authoritative Target Locations for each applicable Agent Identity.
+   Register matching Target Locations when adding relevant Identities.
+
+6. **Lifecycle customization.** Project Rules may customize:
 
    - Stage outcomes.
    - Deliverables.
@@ -211,9 +267,9 @@
 
    Their configuration may evolve through governed decisions as practical Project work develops.
 
-7. **R3.7 — Project Context.** One shared Project Context must serve as the Project-wide directory for every Agent Identity. Authorized Agents may read and maintain entries within their Responsibility.
+7. **Project Context.** One shared Project Context must serve as the Project-wide resource directory. Authorized Agents may read and maintain entries within their Responsibility.
 
-   Register Agent Identities there. References may include:
+   References may include:
 
    - Documents.
    - Resources.
@@ -221,9 +277,11 @@
    - Deliverables.
    - Future matters.
 
+   Project Context need not duplicate the central Agent Directory.
+
    Keep detailed status reports and Deliverable content in their owning resources. Specialized deliverables may maintain domain contexts appropriate to their workflows.
 
-8. **R3.8 — Contextual priority.** Apply these contextual levels:
+8. **Contextual priority.** Apply these contextual levels:
 
    1. Project Rules have the highest contextual priority for their Project.
    2. System Rules provide the next common level.
@@ -239,11 +297,11 @@
 
    An exhaustive override matrix or mechanical conflict algorithm is not required.
 
-9. **R3.9 — Source loading.** Agents should reuse static instructions available in the effective Conversation Context unless their applicability changes. They must read dynamic context and working data when current information is needed. Load Project Commands selectively at the relevant Lifecycle stage.
+9. **Source loading.** Agents should reuse static instructions available in the effective Conversation Context unless their applicability changes. They must read dynamic context and working data when current information is needed. Load Project Commands selectively at the relevant Lifecycle stage.
 
-10. **R3.10 — Meaningful resources.** Every maintained resource should serve an identified purpose. Resource creation must follow the confirmed Project definition and actual operating needs.
+10. **Meaningful resources.** Every maintained resource should serve an identified purpose. Resource creation must follow the confirmed Project definition and actual operating needs.
 
-11. **R3.11 — Optional Database.** Database services are optional.
+11. **Optional Database.** Database services are optional.
 
     They may support:
 
@@ -255,9 +313,9 @@
 
     Common usage guidance belongs in the Plugin. Configuration references belong in System Context.
 
-12. **R3.12 — Database-free operation.** Without Database services, Agents must omit unavailable Database-dependent operations. Apply the manual handoff requirements in Section 8. Project discovery and essential governance must remain possible through Google resources.
+12. **Database-free operation.** Without Database services, Agents must omit unavailable Database-dependent operations. Apply the manual handoff requirements in Section 8. Project discovery and essential governance must remain possible through Google resources.
 
-13. **R3.13 — Integration expression.** Integration requirements must identify:
+13. **Integration expression.** Integration requirements must identify:
 
     - The authoritative resource.
     - The necessary action.
@@ -266,7 +324,7 @@
 
     Database RPC descriptions need authoritative function names and defined inputs and outputs. Connector invocation methods belong to the executing AI.
 
-14. **R3.14 — Directory references.** Each resource reference requires only:
+14. **Directory references.** Each resource reference requires only:
 
     - A useful Title.
     - A useful Description.
@@ -276,9 +334,9 @@
 
 ### 3.2 Project Knowledge Base
 
-1. **R3.15 — Knowledge resources.** The Project Knowledge Base contains General Knowledge and Meeting-approved Specific Topic Knowledge. Register existing Knowledge Base resources in Project Context. Create a new Specific Topic only when a Meeting decides it is needed.
+1. **Knowledge resources.** The Project Knowledge Base contains General Knowledge and Meeting-approved Specific Topic Knowledge. Register existing Knowledge Base resources in Project Context. Create a new Specific Topic only when a Meeting decides it is needed.
 
-2. **R3.16 — Current knowledge.** Include only currently valid, confirmed substantive Project Knowledge. Preserve adopted future directions as future directions rather than completed implementation.
+2. **Current knowledge.** Include only currently valid, confirmed substantive Project Knowledge. Preserve adopted future directions as future directions rather than completed implementation.
 
    Exclude:
 
@@ -290,7 +348,7 @@
 
    Historical Closed Minutes preserve past Decisions.
 
-3. **R3.17 — Decision classification.** After every Meeting closes with verified Closed Minutes, review the entire Minutes. Classify each Decision by its actual meaning.
+3. **Decision classification.** After every Meeting closes with verified Closed Minutes, review the entire Minutes. Classify each Decision by its actual meaning.
 
    One Decision may contain:
 
@@ -300,7 +358,7 @@
 
    Route each part to its accountable owner without losing material meaning.
 
-4. **R3.18 — Semantic routing.** Route substantive meaning according to its owner:
+4. **Semantic routing.** Route substantive meaning according to its owner:
 
    1. Project subject knowledge belongs in General Knowledge or Specific Topic Knowledge.
    2. Project Governance belongs in the applicable governing resources.
@@ -308,7 +366,7 @@
 
    Mentioning the Project alone does not make an instruction Project Knowledge.
 
-5. **R3.19 — Consolidation.** Maintain affected Knowledge Base documents through full consolidation using their complete applicable sources.
+5. **Consolidation.** Maintain affected Knowledge Base documents through full consolidation using their complete applicable sources.
 
    During consolidation:
 
@@ -318,11 +376,11 @@
    4. Apply Global Writing Requirements Standard Mode.
    5. Useful paragraph-level source references may be included.
 
-6. **R3.20 — Execution sources.** Drafting/Execution must use relevant Project Knowledge Base resources for current subject knowledge. It must also use the specific authoritative Closed Minutes for work instructions. Drafting/Execution completion alone does not trigger Knowledge Base maintenance.
+6. **Execution sources.** Drafting/Execution must use relevant Project Knowledge Base resources for current subject knowledge. It must also use the specific authoritative Closed Minutes for work instructions. Drafting/Execution completion alone does not trigger Knowledge Base maintenance.
 
 ## 4. Initiation, identity, and Project creation
 
-1. **R4.1 — Conditional System Initiation.** The Plugin must check:
+1. **Conditional System Initiation.** The Plugin must check:
 
    - The designated Google System Root.
    - Accessibility.
@@ -331,11 +389,11 @@
 
    If required resources exist and are accessible, it must use them without repeating System Initiation.
 
-2. **R4.2 — Bootstrap ownership.** When necessary System resources are genuinely missing, the Project Management Agent must establish or complete them. Inaccessibility alone does not prove absence. Resolve access or location uncertainty before creating another Root.
+2. **Bootstrap ownership.** When necessary System resources are genuinely missing, the Project Management Agent must establish or complete them. Inaccessibility alone does not prove absence. Resolve access or location uncertainty before creating another Root.
 
-3. **R4.3 — Minimum identities.** A usable System must expose at least the System-wide Meeting Agent and Project Management Agent Identities.
+3. **Minimum identities.** A usable System must expose at least the System-wide Meeting Agent and Project Management Agent Identities.
 
-4. **R4.4 — Conversation Initiation.** In an established System, the AI must read System Context. Let the user select a Project and Agent Identity. An unselected Identity must not automatically select Project Management.
+4. **Conversation Initiation.** In an established System, the AI must read System Context. Let the user select a Project and Agent Identity. An unselected Identity must not automatically select Project Management.
 
    For the chosen assignment, load applicable:
 
@@ -344,9 +402,9 @@
    - System Rules.
    - Plugin Instructions.
 
-5. **R4.5 — Project discovery.** Discovery must support a directly supplied Project Folder and a Project name or identifier resolved through the central Directory. Both paths must lead to the owning Project's authoritative resources. Discovery must work independently of Database services.
+5. **Project discovery.** Discovery must support a directly supplied Project Folder and a Project name or identifier resolved through the central Directory. Both paths must lead to the owning Project's authoritative resources. Discovery must work independently of Database services.
 
-6. **R4.6 — Identity meaning.** Each Agent Identity must identify:
+6. **Identity meaning.** Each Agent Identity must identify:
 
    - Its owning Project.
    - Its exact Agent Key.
@@ -354,13 +412,13 @@
    - Its Scope.
    - Its Responsibility.
 
-   Its Role selects reusable Plugin Instructions and the applicable Forward Lifecycle. Maintain one authoritative registration in the owning Project Context Agent Directory. System Context references that registration for discovery.
+   Its Role selects reusable Plugin Instructions and the applicable Forward Lifecycle. Identity registration follows the System Context requirements in Section 3.1.
 
-7. **R4.7 — Identity isolation.** Each Project must use distinct operational Agent Identities and message inboxes. Separate identities may share the same packaged Role Instruction. System-level Project Management's authorized responsibilities do not merge Project identities or inboxes.
+7. **Identity isolation.** Each Project must use distinct operational Agent Identities and message inboxes. Separate identities may share the same packaged Role Instruction. System-level Project Management's authorized responsibilities do not merge Project identities or inboxes.
 
-8. **R4.8 — Stable assignments.** An Agent Key must remain stable across Conversations serving the same assignment. Resolve the user's assignment against registered scope information. Resolve missing or ambiguous identities before scoped Messaging. An unresolved scoped assignment must not default to a Project-wide identity.
+8. **Stable assignments.** An Agent Key must remain stable across Conversations serving the same assignment. Resolve the user's assignment against registered scope information. Resolve missing or ambiguous identities before scoped Messaging. An unresolved scoped assignment must not default to a Project-wide identity.
 
-9. **R4.9 — Initial Project definition.** Project creation must begin with a recorded System-wide Meeting.
+9. **Initial Project definition.** Project creation must begin with a recorded System-wide Meeting.
 
    Confirm:
 
@@ -374,9 +432,9 @@
 
    Work purpose guides Lifecycle selection without requiring a rigid Project taxonomy.
 
-10. **R4.10 — Initial Agent selection.** The defining Meeting must identify the Project-wide Meeting Agent. It may identify narrower Agent assignments when distinct deliverables or responsibilities justify them. Initial scopes must guide conduct without prescribing every possible overlap.
+10. **Initial Agent selection.** The defining Meeting must identify the Project-wide Meeting Agent. It may identify narrower Agent assignments when distinct deliverables or responsibilities justify them. Initial scopes must guide conduct without prescribing every possible overlap.
 
-11. **R4.11 — Project setup.** After the recorded, approved Project definition, Project Management must initiate and register:
+11. **Project setup.** After the recorded, approved Project definition, Project Management must initiate and register:
 
     - The Project.
     - Necessary resources.
@@ -385,7 +443,7 @@
 
     It must preserve suitable durable setup and registration evidence.
 
-12. **R4.12 — Project refinement.** The Project-wide Meeting Agent must refine the following through governed decisions:
+12. **Project refinement.** The Project-wide Meeting Agent must refine the following through governed decisions:
 
     - Rules.
     - Lifecycle usage.
@@ -396,11 +454,11 @@
 
     Authorized implementation remains with the responsible owner.
 
-13. **R4.13 — Identity changes.** Inactive or archived identities must remain preserved but disappear from normal active choices. They may be reactivated when appropriate.
+13. **Identity changes.** Inactive or archived identities must remain preserved but disappear from normal active choices. They may be reactivated when appropriate.
 
 ## 5. Agent responsibilities and Commands
 
-1. **R5.1 — Responsibility, Scope, and Output.** Responsibility defines the result or quality obligation an Agent must guarantee.
+1. **Responsibility, Scope, and Output.** Responsibility defines the result or quality obligation an Agent must guarantee.
 
    Scope defines permitted:
 
@@ -410,7 +468,7 @@
 
    Output identifies actual deliverables or result evidence. Each confirmed Job Scope must remain within the assigned Agent's authority.
 
-2. **R5.2 — Lifecycle families.** Meeting Agents use the Meeting Lifecycle.
+2. **Lifecycle families.** Meeting Agents use the Meeting Lifecycle.
 
    These Roles inherit the shared Execution Parent Lifecycle:
 
@@ -430,7 +488,7 @@
 
    Agent Forward Lifecycles govern Agent work. Work/Deliverable Lifecycles guide subject-matter development.
 
-3. **R5.3 — Meeting responsibility.** Meeting Agents organize:
+3. **Meeting responsibility.** Meeting Agents organize:
 
    - Discussion.
    - Research.
@@ -445,7 +503,7 @@
 
    Scoped Meeting Agents govern only their assigned scopes.
 
-4. **R5.4 — Drafting responsibility.** Drafting prepares independent documents that completely and readably preserve confirmed decisions. Such documents are normally human-facing and high-requirement. A typical small document count is not a hard limit.
+4. **Drafting responsibility.** Drafting prepares independent documents that completely and readably preserve confirmed decisions. Such documents are normally human-facing and high-requirement. A typical small document count is not a hard limit.
 
    Drafting owns the following within its Scope:
 
@@ -453,9 +511,9 @@
    - Methods.
    - Verification.
 
-5. **R5.5 — Reusable resource maintenance.** Library Management's responsibility is coherent maintenance of authoritative reusable operating resources. Its writing must express rules and relationships precisely enough for AI interpretation and reuse. Independent documents remain with Drafting or their assigned domain owner. Library Management is outside the primary initial System-level design focus.
+5. **Reusable resource maintenance.** Library Management's responsibility is coherent maintenance of authoritative reusable operating resources. Its writing must express rules and relationships precisely enough for AI interpretation and reuse. Independent documents remain with Drafting or their assigned domain owner. Library Management is outside the primary initial System-level design focus.
 
-6. **R5.6 — Project Management responsibility.** Project Management owns:
+6. **Project Management responsibility.** Project Management owns:
 
    - System Bootstrap.
    - Authorized Project initiation.
@@ -480,7 +538,7 @@
 
    It must respect the owning Project's Governance authority.
 
-7. **R5.7 — Resource ownership.** The Meeting Agent maintains:
+7. **Resource ownership.** The Meeting Agent maintains:
 
    - Its Meeting Working Records.
    - Its final Minutes.
@@ -497,9 +555,9 @@
 
    Do not create an additional generic Drafting Working Context.
 
-   Shared Project Context maintenance follows R3.7.
+   Shared Project Context maintenance follows Section 3.1.
 
-8. **R5.8 — Database Engineer responsibility.** Database Engineering owns the following within approved database work:
+8. **Database Engineer responsibility.** Database Engineering owns the following within approved database work:
 
    - Infrastructure.
    - Implementation.
@@ -510,7 +568,7 @@
 
    It must inspect current state. It must verify actual behavior. Routine Agents use applicable interfaces directly within their authority.
 
-9. **R5.9 — Central QA responsibility.** One dedicated Central QA role provides assessments and reports that are:
+9. **Central QA responsibility.** One dedicated Central QA role provides assessments and reports that are:
 
    - Independent.
    - Complete.
@@ -524,9 +582,9 @@
    2. Do not authorize remediation.
    3. Do not independently schedule audits.
 
-10. **R5.10 — Ad Hoc direction.** Ad Hoc uses a Meeting-style Lifecycle for small, self-contained work and handles its own deliverables directly. Its detailed redesigned Lifecycle remains pending.
+10. **Ad Hoc responsibility.** Ad Hoc directly delivers small, self-contained work within its own Responsibility. Its discussion and execution checkpoints follow Section 6.4.
 
-11. **R5.11 — Command ownership.** The Agent Lifecycle controls stage order and selects the needed Project Command.
+11. **Command ownership.** The Agent Lifecycle controls stage order and selects the needed Project Command.
 
     Commands define:
 
@@ -541,21 +599,25 @@
     2. Do not expand authority.
     3. Do not duplicate Lifecycle sequencing.
 
-12. **R5.12 — Command organization.** Project Rules must provide a compact Command Index resolving each needed Command to its definition. A native Google Docs Tab per Command is preferred when using Google Docs. Necessary Command content may be reused within the active Conversation.
+12. **Command organization.** Project Rules must provide a compact Command Index resolving each needed Command to its definition. A native Google Docs Tab per Command is preferred when using Google Docs. Necessary Command content may be reused within the active Conversation.
 
-13. **R5.13 — Command readiness.** Required Commands and dependencies must be usable for their assigned actions. An Agent must report missing definitions or inaccessible dependencies. It must not claim incomplete actions succeeded. Detailed execution mechanics remain with authorized implementation.
+13. **Command readiness.** Required Commands and dependencies must be usable for their assigned actions. An Agent must report missing definitions or inaccessible dependencies. It must not claim incomplete actions succeeded. Detailed execution mechanics remain with authorized implementation.
 
-14. **R5.14 — Shared Execution foundation.** Execution Roles may share a broad Execution Protocol and Global Requirements. Each distinct Role must have appropriate Agent Instructions and Project-local Commands reflecting its Responsibility and work type.
+14. **Shared Execution foundation.** Execution Roles may share a broad Execution Protocol and Global Requirements. Each distinct Role must have appropriate Agent Instructions and Project-local Commands reflecting its Responsibility and work type.
 
-15. **R5.15 — Same-Role Commands.** Identities with the same Role and Responsibility inside one Project must share that Role's Commands. Separate scoped Identities retain distinct scopes and own work records. Different Roles may require distinct Commands despite sharing the Execution Protocol.
+15. **Same-Role Commands.** Identities with the same Role and Responsibility inside one Project must share that Role's Commands. Separate scoped Identities retain distinct scopes and own work records. Different Roles may require distinct Commands despite sharing the Execution Protocol.
 
-16. **R5.16 — Command Scope resolution.** Shared Commands must resolve the invoking Identity and currently authorized Scope from the Project Context Agent Directory. Commands must not copy or widen Identity Scope. Resolve missing Scope before acting.
+16. **Dynamic Command resolution.** Shared Commands must resolve the invoking Identity and currently authorized Scope from System Context.
+
+    Resolve the applicable Target Location from current Project Rules. CREATE RECORD must use Project Rules as its Target Location authority.
+
+    A shared Command must not assume a particular Agent Identity or fixed Workspace. Commands must not copy or widen Identity Scope. Resolve missing Scope before acting.
 
 ## 6. Meeting Lifecycle
 
 ### 6.1 Initialization and preparation
 
-1. **R6.1 — Initialization.** Resolve the assigned:
+1. **Initialization.** Resolve the assigned:
 
    - Project.
    - Role.
@@ -564,9 +626,9 @@
 
    Load applicable governing instructions. When Messaging is enabled, preserve Initialization RECEIVE AGENT MESSAGES and NEW MEETING READ MESSAGES as distinct checkpoints.
 
-2. **R6.2 — Active Meeting continuity.** At NEW MEETING, first search for an existing active Meeting and prioritize continuing it. Each assigned Meeting Agent may have only one active Meeting at a time.
+2. **Active Meeting continuity.** At NEW MEETING, first search for an existing active Meeting and prioritize continuing it. Each assigned Meeting Agent may have only one active Meeting at a time.
 
-3. **R6.3 — Agenda sources.** Collect relevant:
+3. **Agenda sources.** Collect relevant:
 
    - Messages.
    - Work Requests.
@@ -582,9 +644,9 @@
 
    Propose a bounded Agenda that may combine compatible selected matters.
 
-4. **R6.4 — Message selection.** A Message selected for the current Agenda must retain its identifier and source. It does not require an intermediate Project Context entry. Unselected new matters enter Future Meeting Topics only when the user explicitly chooses future consideration.
+4. **Message selection.** A Message selected for the current Agenda must retain its identifier and source. It does not require an intermediate Project Context entry. Unselected new matters enter Future Meeting Topics only when the user explicitly chooses future consideration.
 
-5. **R6.5 — Opening.** Open the Meeting only after the user confirms its Agenda. Establish its Working Record and optional index. Verify those resources.
+5. **Opening.** Open the Meeting only after the user confirms its Agenda. Establish its Working Record and optional index. Verify those resources.
 
    Preserve:
 
@@ -593,13 +655,13 @@
    - The confirmed Agenda.
    - Authoritative source references.
 
-6. **R6.6 — Future Topic transfer.** Remove selected existing Future Topics only after their new Meeting Record is successfully established. Preserve unselected entries.
+6. **Future Topic transfer.** Remove selected existing Future Topics only after their new Meeting Record is successfully established. Preserve unselected entries.
 
 ### 6.2 Discussion and outcomes
 
-1. **R6.7 — Agenda boundaries.** Work within the confirmed Agenda. The user may approve adjustments. Defer extended or out-of-scope matters as Open Matters rather than independently expanding the discussion.
+1. **Agenda boundaries.** Work within the confirmed Agenda. The user may approve adjustments. Defer extended or out-of-scope matters as Open Matters rather than independently expanding the discussion.
 
-2. **R6.8 — Accepted outcomes.** Meeting records must distinguish these user-accepted outcomes:
+2. **Accepted outcomes.** Meeting records must distinguish these user-accepted outcomes:
 
    - Findings.
    - Decisions.
@@ -614,7 +676,7 @@
 
    An accepted Finding does not automatically approve an option.
 
-3. **R6.9 — Preserved meaning.** Accepted Findings must retain relevant:
+3. **Preserved meaning.** Accepted Findings must retain relevant:
 
    - Evidence.
    - Scope.
@@ -631,13 +693,13 @@
 
    Confirm materially ambiguous rationale rather than inventing an explanation.
 
-4. **R6.10 — Record substance.** The authoritative Working Record must preserve substantive Meeting outcomes rather than a transcript. Ordinary content changes do not require Database index updates. Precise persistence timing and detailed record design remain subject to Section 12.
+4. **Record substance.** The authoritative Working Record must preserve substantive Meeting outcomes rather than a transcript. Ordinary content changes do not require Database index updates. Precise persistence timing and detailed record design remain subject to Section 12.
 
-5. **R6.11 — Actions.** Identified Actions remain pending until their authorized execution phase unless the user explicitly authorizes earlier execution. Execute only actions within the Meeting Agent's own Responsibility and Scope. Prepare other Agents' work for handoff.
+5. **Actions.** Identified Actions remain pending until their authorized execution phase unless the user explicitly authorizes earlier execution. Execute only actions within the Meeting Agent's own Responsibility and Scope. Prepare other Agents' work for handoff.
 
 ### 6.3 Closing and handoff
 
-1. **R6.12 — Closing dispositions.** At CLOSE MEETING, present the following for disposition:
+1. **Closing dispositions.** At CLOSE MEETING, present the following for disposition:
 
    - Unfinished Agenda items.
    - Deferred topics.
@@ -645,7 +707,7 @@
 
    Carry-forward is the default proposal. Discard a candidate only through the user's explicit decision.
 
-2. **R6.13 — Minutes.** Prepare self-contained Minutes containing:
+2. **Minutes.** Prepare self-contained Minutes containing:
 
    - Final Decisions.
    - Supported rationale.
@@ -656,7 +718,7 @@
 
    Preserve essential constraints. Identify material gaps without speculation. Later Drafting/Execution reads finalized Minutes for applicable instructions without requiring access to the internal live Meeting Record.
 
-3. **R6.14 — Closing order.** Complete substantive closing work and required artifact checks before finalizing closure. Record the actual Closing Time consistently in Minutes and the Working Record.
+3. **Closing order.** Complete substantive closing work and required artifact checks before finalizing closure. Record the actual Closing Time consistently in Minutes and the Working Record.
 
    Use the user's applicable local:
 
@@ -666,7 +728,7 @@
 
    Preserve closed Meeting records and Minutes as immutable records.
 
-4. **R6.15 — Indexed closure.** When Database indexing is enabled, update these fields of the existing Meeting together:
+4. **Indexed closure.** When Database indexing is enabled, update these fields of the existing Meeting together:
 
    - Status.
    - Closing metadata.
@@ -674,7 +736,7 @@
 
    Preserve unrelated metadata and the Working Record reference. Verify the resulting state before claiming closure.
 
-5. **R6.16 — Future Meeting Topics.** After verified closure, register confirmed carry-forward topics in the owning Project Context.
+5. **Future Meeting Topics.** After verified closure, register confirmed carry-forward topics in the owning Project Context.
 
    Each entry needs:
 
@@ -688,9 +750,9 @@
    - Counters.
    - Removal history.
 
-6. **R6.17 — Meeting Plans.** A Meeting Plan remains provisional future work until the user adopts it. Plans and carry-forwards do not automatically open Meetings or authorize Jobs.
+6. **Meeting Plans.** A Meeting Plan remains provisional future work until the user adopts it. Plans and carry-forwards do not automatically open Meetings or authorize Jobs.
 
-7. **R6.18 — Handoff definition.** Identify authorized handoffs before closure.
+7. **Handoff definition.** Identify authorized handoffs before closure.
 
    Each handoff must identify its responsible recipient. Identify the exact target using whichever category applies:
 
@@ -701,11 +763,23 @@
 
    Send handoffs only after full Meeting Protocol completion. Recipients apply their own Role Protocols and approval gates.
 
+### 6.4 Ad Hoc Lifecycle
+
+1. **Discussion and confirmation.** Ad Hoc uses the Meeting-style discussion Lifecycle. Discuss the task with the user. Confirm the intended outcome and work.
+
+2. **Direct Post-Actions.** Confirmed execution work becomes Post-Actions. The Ad Hoc Agent performs these actions directly and owns its Deliverables.
+
+3. **Closing transition.** CLOSE MEETING initiates Closing and normal Post-Action execution.
+
+4. **Immediate execution.** Before Closing, execute an identified action only when the user expressly authorizes immediate execution.
+
+   Discussion or confirmation of a required action alone does not authorize immediate execution.
+
 ## 7. Execution Parent Lifecycle
 
 ### 7.1 Stages and intake
 
-1. **R7.1 — Seven stages.** The shared Execution Parent must use this sequence:
+1. **Seven stages.** The shared Execution Parent must use this sequence:
 
    1. NEW JOB / Information Intake.
    2. Scope Confirmation and Job Record.
@@ -718,7 +792,7 @@
       - Job Finalisation.
    7. After-Job Communication.
 
-2. **R7.2 — Two approvals.** Obtain explicit confirmation of the selected Job Scope. Obtain separate PROCEED EXECUTION approval for the latest saved Execution Plan.
+2. **Two approvals.** Obtain explicit confirmation of the selected Job Scope. Obtain separate PROCEED EXECUTION approval for the latest saved Execution Plan.
 
    Scope confirmation permits the following without another approval:
 
@@ -727,7 +801,7 @@
    - Experience search.
    - Proposal preparation.
 
-3. **R7.3 — Intake identity and sources.** Resolve identity during Initialization. Receive enabled Agent Messages. At NEW JOB, separately READ MESSAGES.
+3. **Intake identity and sources.** Resolve identity during Initialization. Receive enabled Agent Messages. At NEW JOB, separately READ MESSAGES.
 
    Before interpreting a candidate's substantive Scope, read:
 
@@ -735,11 +809,11 @@
    - Work Requests.
    - The candidate's authoritative Closed Minutes.
 
-4. **R7.4 — Previous checkpoint.** Consult the immediately preceding Job's last processed request or source checkpoint for the same Project and exact Agent Identity. Compare identifiers only within the same sequence. Preserve valid pending or excluded work.
+4. **Previous checkpoint.** Consult the immediately preceding Job's last processed request or source checkpoint for the same Project and exact Agent Identity. Compare identifiers only within the same sequence. Preserve valid pending or excluded work.
 
-5. **R7.5 — Future Execution List.** Automatically retain every valid Work Request not wholly incorporated into a confirmed Job. Group entries by owning Agent in Project Context. Remove unincorporated work only through explicit user direction.
+5. **Future Execution List.** Automatically retain every valid Work Request not wholly incorporated into a confirmed Job. Group entries by owning Agent in Project Context. Remove unincorporated work only through explicit user direction.
 
-6. **R7.6 — Pending entry content.** Each entry must contain:
+6. **Pending entry content.** Each entry must contain:
 
    - Its Work Request identifier.
    - A specific Agent-authored Description.
@@ -748,7 +822,7 @@
 
    Derive the Description from the request and its Minutes. Keep it sufficient for continuation without duplicating the Minutes.
 
-7. **R7.7 — Dependencies.** Verify dependencies against:
+7. **Dependencies.** Verify dependencies against:
 
    - Completion Notices for the correct predecessor Agent or Job.
    - Requirements.
@@ -762,7 +836,7 @@
 
    Present unmet or unverified dependencies before Scope selection. The user may authorize earlier progress within actual technical and authority limits. Preserve the dependency's true state.
 
-8. **R7.8 — Consolidation.** A Job may combine Work Requests from multiple Meetings.
+8. **Consolidation.** A Job may combine Work Requests from multiple Meetings.
 
    Reconcile:
 
@@ -773,13 +847,13 @@
 
    Preserve all source references. Present eligible Scope and useful combinations for the user's selection.
 
-9. **R7.9 — Scope transition.** After Scope confirmation, establish and verify the Working Document and applicable Job index. Remove only incorporated portions from the Future Execution List after successful establishment. Retain partial and unselected remainders.
+9. **Scope transition.** After Scope confirmation, establish and verify the Working Document and applicable Job index. Remove only incorporated portions from the Future Execution List after successful establishment. Retain partial and unselected remainders.
 
-10. **R7.10 — Working Document.** Use “Working Document” as an environment-neutral term. Its physical form may differ by execution environment. Apply the authoritative result-return requirements in Section 11.
+10. **Working Document.** Use “Working Document” as an environment-neutral term. Its physical form may differ by execution environment. Apply the authoritative result-return requirements in Section 11.
 
 ### 7.2 Proposal and execution
 
-1. **R7.11 — Proposal preparation.** Complete these actions:
+1. **Proposal preparation.** Complete these actions:
 
    1. Read current target resources.
    2. Analyse execution requirements.
@@ -789,7 +863,7 @@
 
    The responsible author determines substantive organization and permitted implementation methods. Apply Section 7.4 when using delegated execution.
 
-2. **R7.12 — Plan content.** The saved Plan must identify:
+2. **Plan content.** The saved Plan must identify:
 
    - Confirmed Scope.
    - Ordered steps.
@@ -800,9 +874,9 @@
 
    Proposed changes must identify affected resources and their reasons.
 
-3. **R7.13 — Approval changes.** PROCEED EXECUTION approves only the current saved Plan. Ordinary refinements may remain within approved requirements. Material Scope changes require a new Scope decision. Material changes to approved implementation require renewed Plan approval.
+3. **Approval changes.** PROCEED EXECUTION approves only the current saved Plan. Ordinary refinements may remain within approved requirements. Material Scope changes require a new Scope decision. Material changes to approved implementation require renewed Plan approval.
 
-4. **R7.14 — Execution.** Check the approved Plan and required current resources. Perform only authorized work.
+4. **Execution.** Check the approved Plan and required current resources. Perform only authorized work.
 
    Preserve:
 
@@ -810,7 +884,7 @@
    - Applicable Governance.
    - Child responsibility boundaries.
 
-5. **R7.15 — Results.** Preserve the following in the Working Document:
+5. **Results.** Preserve the following in the Working Document:
 
    - Actual changes.
    - Outcomes.
@@ -820,13 +894,13 @@
 
    Maintain corresponding Job index references when Database services are enabled. Detailed writing checkpoints remain subject to Section 12.
 
-6. **R7.16 — Document registration.** When indexing is enabled, create or update the appropriate document index for substantive Document Deliverables. Preserve exact source and originating Job links. Verify existing indexes to avoid duplication.
+6. **Document registration.** When indexing is enabled, create or update the appropriate document index for substantive Document Deliverables. Preserve exact source and originating Job links. Verify existing indexes to avoid duplication.
 
-7. **R7.17 — Decision gaps.** A missing substantive decision must return to the Meeting process. Suspend the affected action until authoritative Closed Minutes resolve it. Preserve completed in-scope work. Drafting organization and permitted implementation methods remain execution judgments.
+7. **Decision gaps.** A missing substantive decision must return to the Meeting process. Suspend the affected action until authoritative Closed Minutes resolve it. Preserve completed in-scope work. Drafting organization and permitted implementation methods remain execution judgments.
 
 ### 7.3 Completion and communication
 
-1. **R7.18 — Completion sequence.** Complete these actions in order:
+1. **Completion sequence.** Complete these actions in order:
 
    1. Read actual execution results.
    2. Verify every deliverable and the final Working Document.
@@ -839,7 +913,7 @@
       - Finalize the existing Job index.
       - Verify its final state.
 
-2. **R7.19 — Proof of Job.** A completed Working Document must preserve:
+2. **Proof of Job.** A completed Working Document must preserve:
 
    - Approved Scope.
    - The source chain.
@@ -857,15 +931,15 @@
 
    Freeze the verified completed record as concise Proof of Job.
 
-3. **R7.20 — Per-Project outcomes.** Multi-Project work must preserve distinct actual outcomes and verification status for each affected Project.
+3. **Per-Project outcomes.** Multi-Project work must preserve distinct actual outcomes and verification status for each affected Project.
 
-4. **R7.21 — Completion authority.** Each executing Agent must perform its own internal QA under Section 9. Self-verification does not create another dedicated QA role. Delegated execution also requires the Parent's independent acceptance under Section 7.4.
+4. **Completion authority.** Each executing Agent must perform its own internal QA under Section 9. Self-verification does not create another dedicated QA role. Delegated execution also requires the Parent's independent acceptance under Section 7.4.
 
-5. **R7.22 — After-Job recipients.** After verified completion, review every incorporated Work Request and its authoritative sources. Notify original request senders and directly related registered Agents, including relevant Execution Agents. Resolve exact identities and recipient relevance. Avoid unrelated or duplicate notices.
+5. **After-Job recipients.** After verified completion, review every incorporated Work Request and its authoritative sources. Notify original request senders and directly related registered Agents, including relevant Execution Agents. Resolve exact identities and recipient relevance. Avoid unrelated or duplicate notices.
 
 ### 7.4 Optional Parent–Child execution
 
-1. **R7.23 — Environment and execution choice.** At NEW JOB, the Execution Agent must check its actual environment's capabilities. When genuine Child creation and supervision are available and appropriate, it may use Parent–Child execution.
+1. **Environment and execution choice.** At NEW JOB, the Execution Agent must check its actual environment's capabilities. When genuine Child creation and supervision are available and appropriate, it may use Parent–Child execution.
 
    Otherwise, execute directly under the same:
 
@@ -876,7 +950,7 @@
 
    A simulated Child must never be represented as genuine delegation.
 
-2. **R7.24 — Parent control.** The Parent coordinates:
+2. **Parent control.** The Parent coordinates:
 
    - Job Scope.
    - Impact assessment.
@@ -898,7 +972,7 @@
    - Final save/publication authorization.
    - Job closure.
 
-3. **R7.25 — Execution List.** The Parent's Execution List identifies expected impact. Identify applicable targets from:
+3. **Execution List.** The Parent's Execution List identifies expected impact. Identify applicable targets from:
 
    - Files.
    - Documents.
@@ -913,7 +987,7 @@
 
    An expressly prescribed structure in authoritative Minutes remains binding.
 
-4. **R7.26 — Sources and authorship.** The Parent supplies complete applicable:
+4. **Sources and authorship.** The Parent supplies complete applicable:
 
    - Project Knowledge.
    - Instruction-bearing Closed Minutes.
@@ -927,13 +1001,13 @@
    - Organization.
    - Permitted implementation methods.
 
-5. **R7.27 — Child submission.** The Child must:
+5. **Child submission.** The Child must:
 
    1. Author the substantive Deliverable.
    2. Perform its own QA.
    3. Return the complete candidate.
 
-6. **R7.28 — Independent review.** The Parent independently reviews the entire candidate at every submission and revision.
+6. **Independent review.** The Parent independently reviews the entire candidate at every submission and revision.
 
    Compare it with:
 
@@ -942,9 +1016,9 @@
    - Global Writing Requirements.
    - Applicable artifact quality rules.
 
-7. **R7.29 — Feedback and retries.** A FAIL requires specific feedback. Allow at most five Child retries after the initial submission. After five unsuccessful retries, report the unpassed outcome for the user's decision. The Parent must not assume the Child's substantive authorship.
+7. **Feedback and retries.** A FAIL requires specific feedback. Allow at most five Child retries after the initial submission. After five unsuccessful retries, report the unpassed outcome for the user's decision. The Parent must not assume the Child's substantive authorship.
 
-8. **R7.30 — Acceptance gate.** Only a fully accepted candidate may proceed to:
+8. **Acceptance gate.** Only a fully accepted candidate may proceed to:
 
    - Authoritative saving.
    - Publication.
@@ -953,7 +1027,7 @@
 
    Temporary review copies are not accepted Deliverables.
 
-9. **R7.31 — Delegation arrangement.** The following remain flexible under user instructions and available capabilities:
+9. **Delegation arrangement.** The following remain flexible under user instructions and available capabilities:
 
    - Child model choice.
    - Reasoning level.
@@ -965,7 +1039,7 @@
 
 ### 8.1 Records and interface authority
 
-1. **R8.1 — Durable records.** Agents should preserve appropriate durable evidence for:
+1. **Durable records.** Agents should preserve appropriate durable evidence for:
 
    - Substantive Meetings.
    - Project creation.
@@ -974,7 +1048,7 @@
 
    This does not require a separate document for every small action.
 
-2. **R8.2 — Index meaning.** Database records must index authoritative content rather than duplicate document bodies.
+2. **Index meaning.** Database records must index authoritative content rather than duplicate document bodies.
 
    Record categories distinguish:
 
@@ -984,7 +1058,7 @@
 
    Agent Role and exact Agent Identity identify responsibility separately from resource type.
 
-3. **R8.3 — Index verification.** Indexed sources must use exact authoritative locators and verified returned identifiers.
+3. **Index verification.** Indexed sources must use exact authoritative locators and verified returned identifiers.
 
    Previous Job lookup must distinguish:
 
@@ -994,7 +1068,7 @@
 
    Preserve historical sources and unresolved identity uncertainty.
 
-4. **R8.4 — Database Contracts.** Database Engineering must maintain authoritative interface definitions for approved database services. Applicable Project Contracts must expose only needed operations and shared semantics. Commands own when and why interfaces are used.
+4. **Database Contracts.** Database Engineering must maintain authoritative interface definitions for approved database services. Applicable Project Contracts must expose only needed operations and shared semantics. Commands own when and why interfaces are used.
 
    Contracts own:
 
@@ -1003,7 +1077,7 @@
    - Outputs.
    - Relevant integrity or security constraints.
 
-5. **R8.5 — Engineering verification.** Approved database changes must preserve applicable:
+5. **Engineering verification.** Approved database changes must preserve applicable:
 
    - Integrity.
    - Security.
@@ -1020,10 +1094,11 @@
 
 ### 8.2 Messaging
 
-1. **R8.6 — Identity and routing.** Enabled Agent Messaging must use exact registered sender and recipient identities.
+1. **Identity and routing.** Enabled Agent Messaging must use exact registered sender and recipient identities.
 
-   Resolve recipients within the destination Project's authoritative registry using:
+   Resolve recipients from the central System Context registry using:
 
+   - Owning Project.
    - Responsibility.
    - Work type.
    - Scope reference.
@@ -1031,7 +1106,7 @@
 
    Hold ambiguous recipients pending.
 
-2. **R8.7 — Work Requests.** A Work Request must identify:
+2. **Work Requests.** A Work Request must identify:
 
    - Its authorized origin.
    - Bounded Scope.
@@ -1040,7 +1115,7 @@
 
    The recipient must apply its own Scope selection and execution approvals.
 
-3. **R8.8 — Completion Notices.** A Completion Notice must report:
+3. **Completion Notices.** A Completion Notice must report:
 
    - Verified completed work.
    - The outcome.
@@ -1050,15 +1125,15 @@
 
    Send it only after the full assigned Protocol completes. It must not instruct the recipient or create new execution authority.
 
-4. **R8.9 — Message handling.** Distinguish newly received Messages from historical search results. Preserve sources and essential meaning. Present suggested follow-up as a proposal. Message search must preserve read state according to the applicable Contract.
+4. **Message handling.** Distinguish newly received Messages from historical search results. Preserve sources and essential meaning. Present suggested follow-up as a proposal. Message search must preserve read state according to the applicable Contract.
 
-5. **R8.10 — Delivery evidence.** Verify stored Message identifiers and timestamps. Reuse the same request key for an uncertain identical retry when supported. Stored delivery does not prove recipient reading. Exact routing identities do not authenticate individual Agents.
+5. **Delivery evidence.** Verify stored Message identifiers and timestamps. Reuse the same request key for an uncertain identical retry when supported. Stored delivery does not prove recipient reading. Exact routing identities do not authenticate individual Agents.
 
-6. **R8.11 — Manual handoff.** When automated Messaging is unavailable, supply copy-ready manual handoff information when appropriate. Include relevant authority and outcome references. The same responsibility and approval boundaries apply.
+6. **Manual handoff.** When automated Messaging is unavailable, supply copy-ready manual handoff information when appropriate. Include relevant authority and outcome references. The same responsibility and approval boundaries apply.
 
 ### 8.3 Experience learning
 
-1. **R8.12 — Advisory status.** Experiences must remain advisory.
+1. **Advisory status.** Experiences must remain advisory.
 
    Assess the following against current authoritative requirements:
 
@@ -1075,7 +1150,7 @@
    - Approvals.
    - Assigned Scope.
 
-2. **R8.13 — Execution checkpoints.** After confirmed Job Scope and successful record establishment, SEARCH EXPERIENCES once before Proposal preparation. After verified Job finalisation, CAPTURE EXPERIENCE once for the entire Job before After-Job communication.
+2. **Execution checkpoints.** After confirmed Job Scope and successful record establishment, SEARCH EXPERIENCES once before Proposal preparation. After verified Job finalisation, CAPTURE EXPERIENCE once for the entire Job before After-Job communication.
 
    Search during work only for one or more of:
 
@@ -1083,9 +1158,9 @@
    - Corrections.
    - Relevant quality problems.
 
-3. **R8.14 — Other active checkpoints.** Meeting and Ad Hoc operations retain applicable Experience searches at Protocol Start and near completion. They must perform one full-lifecycle Capture at completion. Detailed redesign remains deferred.
+3. **Other active checkpoints.** Meeting and Ad Hoc operations retain applicable Experience searches at Protocol Start and near completion. They must perform one full-lifecycle Capture at completion. Detailed redesign remains deferred.
 
-4. **R8.15 — Capture outcomes.** Compare actual reusable learning with governing sources and existing Posts.
+4. **Capture outcomes.** Compare actual reusable learning with governing sources and existing Posts.
 
    Verify these criteria:
 
@@ -1101,7 +1176,7 @@
 
    Record the verified action or an explicit no-action conclusion. Do not publish merely because a Protocol ended.
 
-5. **R8.16 — Experience quality.** Authored Topic names and Post content must follow Strict Mode writing requirements.
+5. **Experience quality.** Authored Topic names and Post content must follow Strict Mode writing requirements.
 
    Preserve:
 
@@ -1116,9 +1191,9 @@
 
 ## 9. Deliverable quality and independent QA
 
-1. **R9.1 — Actual artifacts.** Every Agent must verify the latest saved version of each deliverable it creates or modifies. Verification of a Working Document does not replace verification of separate deliverables.
+1. **Actual artifacts.** Every Agent must verify the latest saved version of each deliverable it creates or modifies. Verification of a Working Document does not replace verification of separate deliverables.
 
-2. **R9.2 — Three dimensions.** Verify these dimensions separately:
+2. **Three dimensions.** Verify these dimensions separately:
 
    - Content Quality.
    - Writing Compliance.
@@ -1133,11 +1208,11 @@
 
    Writing follows active Global Writing Requirements and the correct Writing Mode. Formatting follows the artifact format and applicable Operating Guide. Apply output-specific checks required by the assigned role and deliverable.
 
-3. **R9.3 — Evidence.** Record actual PASS or FAIL for each affected artifact and dimension. Record permitted corrections and successful verification of the latest saved version. Read the complete final artifact after substantive changes before claiming compliance.
+3. **Evidence.** Record actual PASS or FAIL for each affected artifact and dimension. Record permitted corrections and successful verification of the latest saved version. Read the complete final artifact after substantive changes before claiming compliance.
 
-4. **R9.4 — Formatting checkpoints.** Verify Formatting after creating and saving covered Meeting or Job Working Records and Minutes. Verify final Formatting again at Protocol completion. Routine edits need not each trigger a full Formatting check.
+4. **Formatting checkpoints.** Verify Formatting after creating and saving covered Meeting or Job Working Records and Minutes. Verify final Formatting again at Protocol completion. Routine edits need not each trigger a full Formatting check.
 
-5. **R9.5 — Easy to Read.** Formatting must provide:
+5. **Easy to Read.** Formatting must provide:
 
    - Readable hierarchy.
    - Natural information flow.
@@ -1156,7 +1231,7 @@
    - Markdown.
    - Other formats.
 
-6. **R9.6 — Operating Guides.** Where needed, a Document Operating Guide must own its document's:
+6. **Operating Guides.** Where needed, a Document Operating Guide must own its document's:
 
    - Purpose.
    - Names.
@@ -1167,7 +1242,7 @@
 
    Lifecycle actions and cross-resource execution belong in Commands. Apply structural refinements prospectively while preserving historical records and approved formats.
 
-7. **R9.7 — Writing meaning.** Written outputs must preserve meaningful:
+7. **Writing meaning.** Written outputs must preserve meaningful:
 
    - Modality.
    - Confidence.
@@ -1183,9 +1258,9 @@
    - Obsolete wording.
    - Unnecessary negative echo.
 
-8. **R9.8 — Writing clarity.** Use clear, direct wording. Maintain established terminology consistently. Prefer active voice and one independent instruction per sentence. Keep paragraphs focused and no longer than six sentences. Use structured lists for three or more comparable items.
+8. **Writing clarity.** Use clear, direct wording. Maintain established terminology consistently. Prefer active voice and one independent instruction per sentence. Keep paragraphs focused and no longer than six sentences. Use structured lists for three or more comparable items.
 
-9. **R9.9 — Strict Mode.** Apply Strict Mode to:
+9. **Strict Mode.** Apply Strict Mode to:
 
    - Authoritative governing and operational artifacts.
    - Agent Messages.
@@ -1193,7 +1268,7 @@
 
    Limit instructional sentences to 20 words and descriptions to 25 words unless precision requires otherwise. Avoid semicolons and phrasal verbs. Keep controlled terms grammatically consistent.
 
-10. **R9.10 — Language.** English is the default for:
+10. **Language.** English is the default for:
 
     - Operating instructions.
     - Controlled terminology.
@@ -1201,7 +1276,7 @@
 
     Authored content may use another language or mixed languages according to purpose and audience. Preserve original authoritative sources when translations exist. Apply active user communication settings in Conversation.
 
-11. **R9.11 — Independent QA Scope.** Central QA must inspect every approved item at the authorized depth.
+11. **Independent QA Scope.** Central QA must inspect every approved item at the authorized depth.
 
     Possible dimensions include:
 
@@ -1213,7 +1288,7 @@
 
     Writing Compliance is compulsory for every substantively inspected or authored document.
 
-12. **R9.12 — Fidelity inspection.** Compare full substantive meaning, including:
+12. **Fidelity inspection.** Compare full substantive meaning, including:
 
     - Intent.
     - Requirements.
@@ -1231,7 +1306,7 @@
 
     Trace the earliest verified divergence and its downstream effect. Source citations alone do not establish fidelity.
 
-13. **R9.13 — QA reporting.** Each inspected item needs:
+13. **QA reporting.** Each inspected item needs:
 
     - Exact source and target references.
     - Criteria.
@@ -1244,13 +1319,13 @@
 
     Fidelity findings must identify a useful correction starting point and final impact. Report inadequate evidence without presuming compliance.
 
-14. **R9.14 — Independent QA limits.** Complete every approved audit item without cached PASS reuse or automatic skipping. QA reports identify deficiencies but do not authorize correction. A completed audit may contain failed or unverifiable findings.
+14. **Independent QA limits.** Complete every approved audit item without cached PASS reuse or automatic skipping. QA reports identify deficiencies but do not authorize correction. A completed audit may contain failed or unverifiable findings.
 
 ## 10. Reusable Book Development Lifecycle
 
 ### 10.1 Purpose, progression, and foundation
 
-1. **R10.1 — Reusable Lifecycle.** The Plugin must include the existing Book Development Lifecycle as a shared Work/Deliverable resource.
+1. **Reusable Lifecycle.** The Plugin must include the existing Book Development Lifecycle as a shared Work/Deliverable resource.
 
    Project Rules select its application. They may define Project-specific:
 
@@ -1258,9 +1333,9 @@
    - Locations.
    - Assigned Agents.
 
-2. **R10.2 — Author intent.** Develop the user's fragmented or conversational input while preserving core thinking and intended meaning. Contribute new ideas only when explicitly requested.
+2. **Author intent.** Develop the user's fragmented or conversational input while preserving core thinking and intended meaning. Contribute new ideas only when explicitly requested.
 
-3. **R10.3 — Stages.** Guide one active book through these stages:
+3. **Stages.** Guide one active book through these stages:
 
    1. Book Foundation.
    2. Book Architecture.
@@ -1273,7 +1348,7 @@
 
    Earlier stages may be revisited when new information materially changes the book. Change the active book only through explicit user direction.
 
-4. **R10.4 — Purpose.** Before manuscript development, clarify WHY the user wants to write the book and WHY NOW it matters.
+4. **Purpose.** Before manuscript development, clarify WHY the user wants to write the book and WHY NOW it matters.
 
    Use this purpose when any of these conditions applies:
 
@@ -1281,7 +1356,7 @@
    - Confidence falls.
    - Direction is lost.
 
-5. **R10.5 — Book Idea.** Establish one main Book Idea and singular focus.
+5. **Book Idea.** Establish one main Book Idea and singular focus.
 
    If the Book Idea is unclear, explore:
 
@@ -1298,7 +1373,7 @@
    - Motivation.
    - Satisfaction.
 
-6. **R10.6 — Ideal Reader and 4Ps.** Clarify four reader and positioning decisions:
+6. **Ideal Reader and 4Ps.** Clarify four reader and positioning decisions:
 
    1. **Person.** Identify the specific reader for one or more of these purposes:
       - Helping that reader.
@@ -1330,7 +1405,7 @@
 
 ### 10.2 Architecture and Chapter development
 
-1. **R10.7 — Living architecture.** Maintain one living Book Architecture supporting discovery through a Mind Map and structure through an Outline. Exhaust relevant material before perfecting structure.
+1. **Living architecture.** Maintain one living Book Architecture supporting discovery through a Mind Map and structure through an Outline. Exhaust relevant material before perfecting structure.
 
    Capture:
 
@@ -1343,7 +1418,7 @@
    - Repeated explanations.
    - Reference-triggered ideas.
 
-2. **R10.8 — Progressive organization.** Early material may have any of these qualities:
+2. **Progressive organization.** Early material may have any of these qualities:
 
    - Messy.
    - Repetitive.
@@ -1360,9 +1435,9 @@
 
    Do not delay drafting to perfect the first architecture.
 
-3. **R10.9 — Nonfiction structure.** Identify major themes or Parts, usually three to seven broad Sections where useful. Organize Chapters and supporting points beneath them. Give an idea its own Chapter only when its meaning justifies one.
+3. **Nonfiction structure.** Identify major themes or Parts, usually three to seven broad Sections where useful. Organize Chapters and supporting points beneath them. Give an idea its own Chapter only when its meaning justifies one.
 
-4. **R10.10 — Fiction structure.** Where applicable, establish this story progression:
+4. **Fiction structure.** Where applicable, establish this story progression:
 
    1. **Set-Up.** Establish:
       - The hero.
@@ -1377,7 +1452,7 @@
    4. **Second Slap with Hope.** This stage further escalates events while revealing possible progress or victory.
    5. **Climax.** Connect it to the Inciting Incident. Resolve the central conflict appropriately.
 
-5. **R10.11 — Chapter loop.** Develop each Chapter through:
+5. **Chapter loop.** Develop each Chapter through:
 
    1. Content Extraction.
    2. Chapter Structure.
@@ -1395,7 +1470,7 @@
 
    Do not replace missing core ideas without explicit permission to contribute.
 
-6. **R10.12 — Structure confirmation.** Before drafting, identify:
+6. **Structure confirmation.** Before drafting, identify:
 
    - Chapter purpose.
    - The key message.
@@ -1405,13 +1480,13 @@
 
    Confirm meaning and structure with the user before drafting from them.
 
-7. **R10.13 — Chapter Draft.** Draft confirmed material point by point for the Ideal Reader. Develop author voice from the user's communication and confirmed direction. Accept spoken or conversational input. Organize that material into coherent prose. Repeat the loop until the rough manuscript is complete.
+7. **Chapter Draft.** Draft confirmed material point by point for the Ideal Reader. Develop author voice from the user's communication and confirmed direction. Accept spoken or conversational input. Organize that material into coherent prose. Repeat the loop until the rough manuscript is complete.
 
 ### 10.3 Manuscript completion and review
 
-1. **R10.14 — Rough drafting.** Complete the book's meaning before polishing language. Capture improvements for later rather than repeatedly editing unfinished Chapters. Maintain a practical completion plan using Chapter or time checkpoints where useful.
+1. **Rough drafting.** Complete the book's meaning before polishing language. Capture improvements for later rather than repeatedly editing unfinished Chapters. Maintain a practical completion plan using Chapter or time checkpoints where useful.
 
-2. **R10.15 — Drafting boundaries.** Unless explicitly included, protect rough drafting from:
+2. **Drafting boundaries.** Unless explicitly included, protect rough drafting from:
 
    - Title work.
    - Cover work.
@@ -1421,7 +1496,7 @@
 
    Preserve blocked gaps or placeholders and continue where possible.
 
-3. **R10.16 — Momentum.** When momentum falls, revisit:
+3. **Momentum.** When momentum falls, revisit:
 
    - WHY.
    - WHY NOW.
@@ -1430,7 +1505,7 @@
 
    Review or adjust completion goals under user direction. Restore a sustainable writing commitment. Offer accountability support when useful. An imperfect complete rough draft satisfies the completion priority better than isolated polished Chapters.
 
-4. **R10.17 — Author Review.** After rough completion, perform at least one complete review from the Ideal Reader's perspective. Prefer verbal review when practical because listening may reveal problems missed during silent reading.
+4. **Author Review.** After rough completion, perform at least one complete review from the Ideal Reader's perspective. Prefer verbal review when practical because listening may reveal problems missed during silent reading.
 
    Identify:
 
@@ -1450,7 +1525,7 @@
 
    Progress when sufficiently ready for Content Edit.
 
-5. **R10.18 — Content Edit.** Resolve:
+5. **Content Edit.** Resolve:
 
    - Content gaps.
    - Tangents.
@@ -1477,7 +1552,7 @@
    - Content.
    - Structure.
 
-6. **R10.19 — Copy Edit.** Begin when content and structure are sufficiently settled.
+6. **Copy Edit.** Begin when content and structure are sufficiently settled.
 
    Improve:
 
@@ -1497,7 +1572,7 @@
    - Voice.
    - Promise.
 
-7. **R10.20 — Finished Manuscript.** Require content-level and copy-level review.
+7. **Finished Manuscript.** Require content-level and copy-level review.
 
    Treat the book as finished when it is:
 
@@ -1509,7 +1584,7 @@
 
    Apply a practical completion boundary rather than endless polishing.
 
-8. **R10.21 — Book State.** Keep the following clear:
+8. **Book State.** Keep the following clear:
 
    - The active stage.
    - The current Part or Chapter.
@@ -1519,7 +1594,7 @@
 
 ## 11. Environments, result return, and governed changes
 
-1. **R11.1 — Execution environments.** The architecture must support authorized work through:
+1. **Execution environments.** The architecture must support authorized work through:
 
    - ChatGPT.
    - Local environments.
@@ -1527,9 +1602,9 @@
 
    Execution surfaces may use their own Working Documents and assets. Plugin packaging alone does not establish native operation on every host.
 
-2. **R11.2 — Connectors.** Every participating environment must have suitable Google Drive / Docs access. Local execution uses gog/gogcli as its selected Google connector dependency. Other hosts may use suitable connectors. The AI must assess required setup and permissions according to its actual environment.
+2. **Connectors.** Every participating environment must have suitable Google Drive / Docs access. Local execution uses gog/gogcli as its selected Google connector dependency. Other hosts may use suitable connectors. The AI must assess required setup and permissions according to its actual environment.
 
-3. **R11.3 — Governance continuity.** Local and remote work must preserve:
+3. **Governance continuity.** Local and remote work must preserve:
 
    - Authoritative Google decisions.
    - Approved Scope.
@@ -1539,7 +1614,7 @@
 
    Local files do not establish independent governance authority.
 
-4. **R11.4 — Result return.** Return the following to the owning Google-authoritative workflow:
+4. **Result return.** Return the following to the owning Google-authoritative workflow:
 
    - Required Job or Execution Record details.
    - Actual status.
@@ -1549,9 +1624,9 @@
 
    Verify required updates before claiming completion. Full workspace copies and every intermediate asset are not automatically required.
 
-5. **R11.5 — Access limitations.** Report unavailable authoritative access or uncompleted required updates accurately. Discuss permitted setup or assistance with the user. Detailed operational access-restoration behavior remains subject to later practical design.
+5. **Access limitations.** Report unavailable authoritative access or uncompleted required updates accurately. Discuss permitted setup or assistance with the user. Detailed operational access-restoration behavior remains subject to later practical design.
 
-6. **R11.6 — Governed implementation.** System and Project changes must follow:
+6. **Governed implementation.** System and Project changes must follow:
 
    - Their authorized owner.
    - Source authority.
@@ -1571,7 +1646,7 @@
 
 ## 12. Baseline acceptance and deferred development
 
-1. **R12.1 — Foundation acceptance.** The initial foundation must provide:
+1. **Foundation acceptance.** The initial foundation must provide:
 
    - A usable Repository entry.
    - A concise README.
@@ -1593,9 +1668,9 @@
    - Writing.
    - Formatting.
 
-2. **R12.2 — Subsequent Plugin work.** Actual Plugin development must follow the requirements baseline under a separately authorized development Job. A working Plugin and full Documentation are not mandatory initial foundation outputs.
+2. **Subsequent Plugin work.** Actual Plugin development must follow the requirements baseline under a separately authorized development Job. A working Plugin and full Documentation are not mandatory initial foundation outputs.
 
-3. **R12.3 — Deferred record details.** Precise post-closure Knowledge Base checkpoints and unusual ownership exceptions remain pending.
+3. **Deferred record details.** Precise post-closure Knowledge Base checkpoints and unusual ownership exceptions remain pending.
 
    The following also require later coherent design:
 
@@ -1606,7 +1681,7 @@
 
    Preserve the adopted ownership and consolidation requirements in Sections 3 and 5.
 
-4. **R12.4 — Deferred Lifecycles.** These remain intended future reusable Lifecycles:
+4. **Deferred Lifecycles.** These remain intended future reusable Lifecycles:
 
    - Business Document Development.
    - Governance.
@@ -1614,7 +1689,7 @@
 
    Their detailed stages remain undecided. Refine these and the relationship between Agent and Deliverable work using practical Project experience.
 
-5. **R12.5 — Remaining implementation design.** The following require later authorized design:
+5. **Remaining implementation design.** The following require later authorized design:
 
    - Exact packaging.
    - Update methods.
@@ -1626,7 +1701,7 @@
 
    Preserve current confirmed outcomes without inventing missing substantive decisions.
 
-6. **R12.6 — Migration boundary.** Existing Projects Migration remains a separate later workstream after Framework development.
+6. **Migration boundary.** Existing Projects Migration remains a separate later workstream after Framework development.
 
    Its future direction includes:
 
