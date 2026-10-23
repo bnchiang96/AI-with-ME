@@ -17,9 +17,10 @@ The current deliverable is the repository foundation and Requirements V1. An ins
 ## 2. Operating concept
 
 1. **Shared instructions.** The intended installed Plugin supplies reusable instructions and resources for normal Agent operation without routine GitHub reads.
-2. **Current governance.** Google System Context identifies Projects and registered Agent Identities. Each Identity specifies its owning Project, Role, Scope, and Responsibility. The user selects the Project and Agent Identity for the conversation.
-3. **Governed work.** Meeting Agents organize user decisions and authoritative Minutes. Execution Agents implement approved work through Scope Confirmation, a saved Execution Plan, separate execution approval, and verification of actual Deliverables.
-4. **Project configuration.** Project Rules select applicable Work Lifecycles and define Project-specific outcomes, resource purposes, destinations, and responsibilities. Agent Lifecycles govern Agent work, while Work Lifecycles guide subject-matter outputs.
+2. **Current governance.** Google System Context identifies Projects and references their Agent Directories. Each Project Context provides the shared resource directory and authoritative Agent Identity registrations. Each Identity specifies its owning Project, Role, Scope and Responsibility. The user selects the Project and Agent Identity for the conversation.
+3. **Knowledge and instructions.** Meeting Agents maintain authoritative Minutes and consolidate confirmed Project subject knowledge in the Project Knowledge Base. Execution Agents use relevant current Knowledge Base resources together with specific Closed Minutes for work instructions.
+4. **Governed work.** Execution Agents use Scope Confirmation, a saved Execution Plan, separate execution approval and verification of actual Deliverables. They may execute directly or use genuine Parent–Child delegation when available and appropriate. Delegated work requires independent Parent review and acceptance before final publication.
+5. **Project configuration.** Project Rules select applicable Work Lifecycles and define Project-specific outcomes, resource purposes, destinations, and responsibilities. Agent Lifecycles govern Agent work, while Work Lifecycles guide subject-matter outputs.
 
 The [requirements](requirements/requirements.md) define initiation, role boundaries, approvals, records, and quality verification in detail.
 
