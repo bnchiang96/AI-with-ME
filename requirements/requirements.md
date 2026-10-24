@@ -216,7 +216,7 @@ These Non-functional Requirements bind relevant design and maintenance of:
 3. **System Context.** System Context must maintain:
 
    - The Project Directory.
-   - The central Agent Identity registry.
+   - The single complete Agent Directory, including each Identity and its assigned Scope.
    - System configuration.
 
    Maintain one authoritative registration per Agent Identity there.
@@ -255,7 +255,15 @@ These Non-functional Requirements bind relevant design and maintenance of:
    - Location.
    - Responsible Agent.
 
-   Project Rules must register authoritative Target Locations for each applicable Agent Identity.
+   Project Rules must register authoritative Target Locations for each operating Agent Identity and its relevant record categories.
+   Applicable categories include:
+
+   - Meeting Working Records.
+   - Closed Minutes.
+   - Drafting Records.
+   - Other Job Records.
+   - Additional Agent-owned records or resources.
+
    Register matching Target Locations when adding relevant Identities.
 
 6. **Lifecycle customization.** Project Rules may customize:
@@ -277,7 +285,7 @@ These Non-functional Requirements bind relevant design and maintenance of:
    - Deliverables.
    - Future matters.
 
-   Project Context need not duplicate the central Agent Directory.
+   Project Context must not duplicate the central Agent Directory.
 
    Keep detailed status reports and Deliverable content in their owning resources. Specialized deliverables may maintain domain contexts appropriate to their workflows.
 
@@ -348,7 +356,7 @@ These Non-functional Requirements bind relevant design and maintenance of:
 
    Historical Closed Minutes preserve past Decisions.
 
-3. **Decision classification.** After every Meeting closes with verified Closed Minutes, review the entire Minutes. Classify each Decision by its actual meaning.
+3. **Decision classification.** After every Meeting closes with verified Closed Minutes, review the entire Minutes. Classify confirmed Meeting outcomes, including each Decision, by their actual meaning.
 
    One Decision may contain:
 
@@ -366,7 +374,9 @@ These Non-functional Requirements bind relevant design and maintenance of:
 
    Mentioning the Project alone does not make an instruction Project Knowledge.
 
-5. **Consolidation.** Maintain affected Knowledge Base documents through full consolidation using their complete applicable sources.
+5. **Consolidation.** For a routine update, read the complete current Knowledge Base and newly verified Closed Minutes from Section 3.2.3.
+   Consolidate applicable Project Knowledge throughout the complete current Knowledge Base.
+   Ordinary updates do not require rereading the full Historical Minutes collection.
 
    During consolidation:
 
@@ -377,6 +387,80 @@ These Non-functional Requirements bind relevant design and maintenance of:
    5. Useful paragraph-level source references may be included.
 
 6. **Execution sources.** Drafting/Execution must use relevant Project Knowledge Base resources for current subject knowledge. It must also use the specific authoritative Closed Minutes for work instructions. Drafting/Execution completion alone does not trigger Knowledge Base maintenance.
+
+### 3.3 PROFIT + A Framework
+
+1. **Framework purpose.** PROFIT + A must provide a reusable Framework for defining AI tasks and Prompts.
+   PROFIT defines the task. A defines the readiness handshake before execution.
+
+2. **Prompt applicability.** All Sub-agent Prompts and future Plugin Development Prompts must use the complete PROFIT + A Framework.
+   Apply Strict Mode under Section 9.9.
+
+3. **PROFIT elements.** Define these six elements for the task:
+
+   1. **P — Persona.** Define who the AI should be for the task, including the necessary:
+      - Role.
+      - Skills.
+      - Experience.
+      - Domain knowledge.
+   2. **R — Result.** Define the exact deliverable or outcome the AI should produce.
+   3. **O — Objective.** Define why the task is necessary and what the Result should achieve.
+   4. **F — Feed.** Identify the source material the AI receives to perform the task.
+      Feed is the material itself. It may include:
+      - Data.
+      - Documents.
+      - Images.
+      - References.
+      - Product information.
+      - Previous outputs.
+      - Other inputs.
+   5. **I — Insight.** Define how the Feed should be understood and how the Result should be shaped.
+      Insight may include:
+      - Audience.
+      - Platform.
+      - Tone.
+      - Constraints.
+      - Priorities.
+      - Research findings.
+      - Strategic direction.
+      - Other interpretation.
+   6. **T — Template.** Define the final Result's:
+      - Structure.
+      - Format.
+      - Presentation.
+
+4. **Feed Modes.** Use the applicable mode:
+
+   1. **Provide Now.** Include the required Feed with the Prompt.
+   2. **Provide Later.** Define the required Feed. The user provides it in the next message.
+   3. **Continuous Feed.** Continue the task across multiple turns.
+      New Feed may affect earlier working context through:
+      - Additions.
+      - Changes.
+      - Replacement.
+
+5. **Acknowledgement.** Acknowledgement must remain the final part of the Prompt.
+   Apply the readiness handshake for the selected Feed Mode:
+
+   1. **Provide Now.** The AI confirms readiness. It waits for the user's explicit start signal before execution.
+   2. **Provide Later.** The AI performs these steps:
+      1. Confirm readiness.
+      2. State the required Feed.
+      3. Execute once that Feed is provided.
+   3. **Continuous Feed.** The AI confirms readiness once at the start or reset point.
+      It then processes subsequent Feed directly.
+
+6. **Feed In.** Feed In is a supporting concept, separate from PROFIT + A.
+   It defines what the user needs to prepare or provide to use the Prompt.
+
+7. **Prompt composition.** Arrange the six PROFIT elements in any order that makes the final Prompt clear and natural.
+   In the final Prompt:
+
+   - I refers to the user.
+   - You refers to the AI.
+
+   During Framework review or drafting, describe definitions naturally.
+   Do not force I / You wording before composing the final Prompt.
 
 ## 4. Initiation, identity, and Project creation
 
@@ -607,9 +691,10 @@ These Non-functional Requirements bind relevant design and maintenance of:
 
 15. **Same-Role Commands.** Identities with the same Role and Responsibility inside one Project must share that Role's Commands. Separate scoped Identities retain distinct scopes and own work records. Different Roles may require distinct Commands despite sharing the Execution Protocol.
 
-16. **Dynamic Command resolution.** Shared Commands must resolve the invoking Identity and currently authorized Scope from System Context.
+16. **Dynamic Command resolution.** Shared Meeting, Drafting, Job and CREATE RECORD Commands must identify the invoking Agent Identity and record category.
 
-    Resolve the applicable Target Location from current Project Rules. CREATE RECORD must use Project Rules as its Target Location authority.
+    Resolve the Identity's currently authorized Scope from System Context.
+    Resolve the category's applicable Target Location from current Project Rules.
 
     A shared Command must not assume a particular Agent Identity or fixed Workspace. Commands must not copy or widen Identity Scope. Resolve missing Scope before acting.
 
@@ -754,14 +839,21 @@ These Non-functional Requirements bind relevant design and maintenance of:
 
 7. **Handoff definition.** Identify authorized handoffs before closure.
 
-   Each handoff must identify its responsible recipient. Identify the exact target using whichever category applies:
+   Each handoff must identify its responsible recipient and authoritative sources or targets.
+   Distinguish authoritative sources for reading from authorized destinations for writing records.
+   Identify the exact target using whichever category applies:
 
    - Deliverable.
    - Document.
    - Project.
    - Resource.
 
-   Send handoffs only after full Meeting Protocol completion. Recipients apply their own Role Protocols and approval gates.
+   Send handoffs only after full Meeting Protocol completion.
+   Recipients apply their own:
+
+   - Role Protocols.
+   - Approved Scope.
+   - Approval gates.
 
 ### 6.4 Ad Hoc Lifecycle
 
@@ -1210,6 +1302,8 @@ These Non-functional Requirements bind relevant design and maintenance of:
 
 3. **Evidence.** Record actual PASS or FAIL for each affected artifact and dimension. Record permitted corrections and successful verification of the latest saved version. Read the complete final artifact after substantive changes before claiming compliance.
 
+   After all modifications, independently inspect the complete Requirements artifact across the three quality dimensions in Section 9.2.
+
 4. **Formatting checkpoints.** Verify Formatting after creating and saving covered Meeting or Job Working Records and Minutes. Verify final Formatting again at Protocol completion. Routine edits need not each trigger a full Formatting check.
 
 5. **Easy to Read.** Formatting must provide:
@@ -1262,7 +1356,10 @@ These Non-functional Requirements bind relevant design and maintenance of:
 
 9. **Strict Mode.** Apply Strict Mode to:
 
+   - The entire Requirements file, including retained content, additions, consolidation and future revisions.
    - Authoritative governing and operational artifacts.
+   - Sub-agent Prompts.
+   - Plugin Development Prompts.
    - Agent Messages.
    - Experience content.
 
@@ -1711,4 +1808,3 @@ These Non-functional Requirements bind relevant design and maintenance of:
    - Import of reviewed context and Archive.
 
    Historical material does not automatically override current governance. Database redesign and any transition require independent authorization and verified preservation.
-
